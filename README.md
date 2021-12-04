@@ -1,8 +1,7 @@
-#PUI-FINAL-In my Room
+# PUI-FINAL-In my Room
 
-## Setup
-Download [Node.js](https://nodejs.org/en/download/).
-Run this followed commands:
+Download [Node.js](https://nodejs.org/en/download/). 
+Run this followed commands after you have Node.js:
 
 ``` bash
 # Install dependencies (only the first time)
