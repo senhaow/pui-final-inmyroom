@@ -14,7 +14,7 @@ npm run dev
 npm run build
 ```
 
-Video Demo Link: https://youtu.be/t_og2lVSmY8
+## Video Demo Link: https://youtu.be/t_og2lVSmY8
 
 ## What is this project?
 Have you ever watched Lo-fi youtube channel in your late night coding session such as Chilled Cow? This is a Youtube Channel that has around 10 million subscribers. Many people spend their nights listening to this channel, not only for its nicely curated musics, but also the vibe that this cover art gives out. 
