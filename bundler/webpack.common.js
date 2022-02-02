@@ -86,6 +86,13 @@ module.exports = {
                     'raw-loader',
                     'glslify-loader'
                 ]
+            },
+
+            //MP3
+            {
+                test: /\.mp3$/,
+                type: 'asset/resource',
+                loader: 'file-loader'
             }
         ]
     }

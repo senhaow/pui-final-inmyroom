@@ -1,0 +1,83 @@
+.Menu
+{
+  flex-direction: column;
+  position: fixed;
+  z-index: 4;
+  min-width: 260px;
+  height: 890px;
+  border: 2px solid white;
+  margin-left: 50px;
+  margin-top: 5vh;
+  background-color: black;
+  border-radius: 20px;
+  box-shadow: 4px 4px 0px 4px white;
+  padding: 25px;
+}
+
+button{
+  border:none;
+}
+
+
+.button-icon{
+  background-color: black;
+  border: none;
+}
+
+.vertical-Container{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.horizantal-Container{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+
+.checkbox-Container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.icons{
+  width: 1.5em;
+  margin-right: 25px;
+}
+
+#arrow-image{
+  background-color: black;
+  border: none;
+  height: 15px;
+  width: auto;
+}
+
+#plus_icon{
+  background-color: black;
+  border: none;
+  height: 7px;
+  width: auto;
+  margin:auto;
+}
+
+#collapse {
+ animation: rotate-keyframes 1s;
+ height: 30vh
+}
+
+#header{
+  font-size: 2em;
+  padding-left:0.5em;
+}
+
+#menu-Modules{
+  gap: 1em;
+  padding: 0.5em;
+}

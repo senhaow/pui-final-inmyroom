@@ -1,6 +1,7 @@
 import * as THREE from 'three'
 import Experience from './Experience.js'
 import Baked from './Baked.js'
+import ImageLoader from './ImageLoader.js'
 
 
 export default class World
@@ -18,6 +19,7 @@ export default class World
             {
                 // this.setDummy()
                 this.setBaked()
+                this.setImages()
             }
         })
     }
@@ -36,6 +38,10 @@ export default class World
     setBaked()
     {
         this.baked = new Baked()
+    }
+
+    setImages(){
+      this.images = new ImageLoader()
     }
 
 

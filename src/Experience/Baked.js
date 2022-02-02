@@ -1,8 +1,9 @@
 import * as THREE from 'three'
-
 import Experience from './Experience.js'
 import vertexShader from './shaders/baked/vertex.glsl'
-import fragmentShader from './shaders/baked/fragment.glsl'
+import fragmentShader_1 from './shaders/baked/bake1.glsl'
+import fragmentShader_2 from './shaders/baked/bake2.glsl'
+import fragmentShader_3 from './shaders/baked/bake3.glsl'
 
 export default class CoffeeSteam
 {
@@ -28,47 +29,85 @@ export default class CoffeeSteam
 
     setModel()
     {
+      //Original model
       this.model = {}
 
-      this.model.mesh = this.resources.items.roomModel.scene
+      //Loading Meshes
+      this.model.mesh1 = this.resources.items.baked1_model.scene
+      this.model.mesh2 = this.resources.items.baked2_model.scene
 
-      this.model.dayTexture = this.resources.items.bakedDayTexture
-      this.model.dayTexture.encoding = THREE.sRGBEncoding
-      this.model.dayTexture.flipY = false
 
-      this.model.nightTexture = this.resources.items.bakedNightTexture
-      this.model.nightTexture.encoding = THREE.sRGBEncoding
-      this.model.nightTexture.flipY = false
+      //Loading Bake1 Texture *****************************
+      this.model.baked1_day = this.resources.items.baked1_texture
+      this.model.baked1_day.encoding = THREE.sRGBEncoding
+      this.model.baked1_day.flipY = false
 
-      console.log(this.model.texture)
+      this.model.baked1_night = this.resources.items.baked1_texture_night
+      this.model.baked1_night.encoding = THREE.sRGBEncoding
+      this.model.baked1_night.flipY = false
 
-      this.model.material = new THREE.ShaderMaterial({
+      //Loading Bake2 Texture *****************************
+      this.model.baked2_day = this.resources.items.baked2_texture
+      this.model.baked2_day.encoding = THREE.sRGBEncoding
+      this.model.baked2_day.flipY = false
+
+      this.model.baked2_night = this.resources.items.baked2_texture_night
+      this.model.baked2_night.encoding = THREE.sRGBEncoding
+      this.model.baked2_night.flipY = false
+
+
+
+      this.model.material_1 = new THREE.ShaderMaterial({
         uniforms:
         {
-          uDayTexture: {value: this.model.dayTexture},
-          uNightTexture: {value: this.model.nightTexture},
+          uDayTexture_1: {value: this.model.baked1_day},
+          uNightTexture_1: {value: this.model.baked1_night},
 
           uMix: { value: 0 }
         },
         vertexShader: vertexShader,
-        fragmentShader: fragmentShader
+        fragmentShader: fragmentShader_1
       })
 
-      this.model.mesh.traverse((_child) =>
+      this.model.material_2 = new THREE.ShaderMaterial({
+        uniforms:
+        {
+          uDayTexture_2: {value: this.model.baked2_day},
+          uNightTexture_2: {value: this.model.baked2_night},
+
+          uMix: { value: 0 }
+        },
+        vertexShader: vertexShader,
+        fragmentShader: fragmentShader_2
+      })
+
+
+      this.model.mesh1.traverse((_child) =>
       {
         if(_child instanceof THREE.Mesh)
         {
-          _child.material = this.model.material
+          _child.material = this.model.material_1
         }
       })
 
-      this.scene.add(this.model.mesh)
+      this.model.mesh2.traverse((_child) =>
+      {
+        if(_child instanceof THREE.Mesh)
+        {
+          _child.material = this.model.material_2
+        }
+      })
+
+      this.scene.add(this.model.mesh1)
+      this.scene.add(this.model.mesh2)
+
 
       if(this.debug)
       {
+
         this.debugFolder
                 .addInput(
-                    this.model.material.uniforms.uMix,
+                    this.model.material_1.uniforms.uMix,
                     'value',
                     { label: 'Day_vs_Night', min: 0, max: 1 }
                 )

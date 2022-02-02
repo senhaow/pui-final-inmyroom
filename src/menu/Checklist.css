@@ -1,0 +1,23 @@
+input{
+  background-color: #000;
+  color: white;
+  border: none;
+  font-family: "Darker Grotesque", serif;
+  font-size: 1.2em;
+  color: white;
+  font-weight: 600;
+}
+
+input:focus{
+  border: none;
+  border-bottom: 2px solid white;
+  outline:none;
+}
+
+.checkBox-div{
+
+}
+
+#textStrike{
+  text-decoration: line-through;
+}

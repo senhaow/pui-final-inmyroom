@@ -5,6 +5,30 @@
     box-sizing: border-box;
 }
 
+h1{
+  font-family: "Darker Grotesque", serif;
+  font-size: 1.8em;
+  color: white;
+  font-weight: 800;
+  margin-bottom: .25em;
+}
+
+h2,a{
+  font-family: "Darker Grotesque", serif;
+  font-size: 1.2em;
+  color: white;
+  font-weight: 300;
+  margin-bottom: .25em;
+
+}
+
+h3{
+  font-family: "Darker Grotesque", serif;
+  font-size: 1em;
+  color: white;
+  font-weight: 300;
+}
+
 html,
 body
 {
